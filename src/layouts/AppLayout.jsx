@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Navigation from "../components/Navigation";
 
 export default function AppLayout() {
@@ -6,7 +6,8 @@ export default function AppLayout() {
     <>
       <Navigation />
       <main className="pb-19">
-          <Outlet />
+        <Outlet />
+        <ScrollRestoration />
       </main>
     </>
   );
