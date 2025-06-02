@@ -3,7 +3,7 @@ export default function Cover() {
     <div className="w-full">
       <img
         src="assets/cover.jpg"
-        className=" w-full h-90 sm:h-200 object-cover object-top"
+        className=" w-full h-90 sm:h-150 object-cover object-top"
         alt=""
       />
     </div>

@@ -1,6 +1,7 @@
 import CardSkeleton from "./CardSkeleton";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import TopProductCard from "./TopProductCard";
 
 const fetchProducts = async () => {
   const res = await fetch(
@@ -35,26 +36,16 @@ export default function TopProductsBanner() {
         )}
         {isError && <div>Error: {error}</div>}
         {products && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 place-items-start">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 place-items-start">
             {products.map((product, index) => {
+          console.log(product);
               return (
                 <Link
                   to={`/products/${product.id}`}
                   key={index}
-                  className="w-full h-80 rounded-md flex flex-col justify-between gap-2 p-1"
+                  className="w-full h-full rounded-md flex flex-col justify-between gap-2"
                 >
-                  <div>
-                    <div className="self-center h-40 sm:h-60 w-full">
-                      <img
-                        src={product.image}
-                        className="h-full w-full object-contain"
-                        alt=""
-                      />
-                    </div>
-                    <div className="line-clamp-2 text-sm sm:text-base text-left h-10 sm:h-12">
-                      {product.title}
-                    </div>
-                  </div>
+                  <TopProductCard title={product.title} image={product.image} price={product.price} rating={product.rating.rate} />
                 </Link>
               );
             })}

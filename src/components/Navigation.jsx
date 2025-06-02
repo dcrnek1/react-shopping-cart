@@ -58,7 +58,7 @@ export default function Navigation() {
                   <div
                     className={`text-xs relative hover:underline underline-offset-3 sm:w-20 sm:text-center ${
                       isActive
-                        ? "text-primary font-bold sm:text-base sm:font-bold sm:font-semibold"
+                        ? "text-primary font-bold sm:text-base sm:font-bold sm:font-semibold sm:underline"
                         : "font-light sm:text-base sm:font-normal"
                     }`}
                   >

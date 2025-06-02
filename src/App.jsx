@@ -35,10 +35,14 @@ function App() {
     <>
       <Cover />
       <div className="max-w-7xl m-auto p-2 z-0">
-        <h1 className="text-xl sm:text.2xl uppercase py-2">
-          Browse by category
+        <h1 className="text-xl font-bold sm:text.2xl uppercase py-2 mb-2 relative w-max">
+          <span className="z-2 relative">Browse by category</span>
+          <div className="absolute bottom-1 h-1 w-full bg-primary">
+            <div className="h-3 w-2 z-1 bg-white absolute -top-1.5 -left-0.5 rotate-45 object-contain"></div>
+            <div className="h-3 w-2 z-1 bg-white absolute -top-0.5 -right-1.5 rotate-45 object-contain"></div>
+          </div>
         </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
           {categories.map((category, index) => {
             return (
               <Link
@@ -65,7 +69,13 @@ function App() {
           })}
         </div>
 
-        <h1 className="text-xl sm:text.2xl uppercase py-2 pt-5">Top products</h1>
+        <h1 className="text-xl font-bold sm:text.2xl uppercase py-2 mb-2 relative w-max mt-4">
+          <span className="z-2 relative">Top products</span>
+          <div className="absolute bottom-1 h-1 w-full bg-primary">
+            <div className="h-3 w-2 z-1 bg-white absolute -top-1.5 -left-0.5 rotate-45 object-contain"></div>
+            <div className="h-3 w-2 z-1 bg-white absolute -top-0.5 -right-1.5 rotate-45 object-contain"></div>
+          </div>
+        </h1>
         <TopProductsBanner />
       </div>
     </>
