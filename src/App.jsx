@@ -7,25 +7,25 @@ function App() {
     {
       name: "Men",
       path: "/products?category=men",
-      imageUrl: "src/assets/mens.jpg",
+      imageUrl: "assets/mens.jpg",
       overlay: false,
     },
     {
       name: "Women",
       path: "/products?category=women",
-      imageUrl: "src/assets/womens2.jpg",
+      imageUrl: "assets/womens2.jpg",
       overlay: false,
     },
     {
       name: "Jewelery",
       path: "/products?category=jewelery",
-      imageUrl: "src/assets/jewelery.jpg",
+      imageUrl: "assets/jewelery.jpg",
       overlay: false,
     },
     {
       name: "All products",
       path: "/products",
-      imageUrl: "src/assets/allproducts.jpg",
+      imageUrl: "assets/allproducts.jpg",
       overlay: true,
     },
   ];
