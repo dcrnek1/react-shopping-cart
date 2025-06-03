@@ -2,7 +2,6 @@ import CardSkeleton from "./CardSkeleton";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import TopProductCard from "./TopProductCard";
-import { useEffect, useState } from "react";
 
 const fetchTopProducts = async () => {
   const res = await fetch(
@@ -17,7 +16,6 @@ export default function TopProductsBanner() {
     data: products,
     isLoading,
     isError,
-    error,
   } = useQuery({
     queryKey: ["topProducts"],
     queryFn: fetchTopProducts,

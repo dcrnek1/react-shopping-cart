@@ -6,9 +6,9 @@ export default function AppLayout() {
   return (
     <>
       <Navigation />
-      <main className="pb-16 sm:pb-0 flex flex-col gap-20 min-h-screen">
+      <main className="pb-16 sm:pb-0 flex flex-col min-h-screen">
         <Outlet />
-      <Footer />
+        <Footer />
         <ScrollRestoration />
       </main>
     </>
