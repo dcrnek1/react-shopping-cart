@@ -5,7 +5,7 @@ import TopProductCard from "./TopProductCard";
 
 const fetchProducts = async () => {
   const res = await fetch(
-    "https://fakestoreapi.com/products?limit=12&sort=asc"
+    "https://fakestoreapi.com/products?limit=10&sort=asc"
   );
   if (!res.ok) throw new Error("Failed to fetch products");
   return res.json();
@@ -27,18 +27,21 @@ export default function TopProductsBanner() {
     <>
       <div>
         {isLoading && (
-          <div className="grid grid-cols-2 gap-2 place-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 place-items-center">
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
           </div>
         )}
-        {isError && <div>Error: {error}</div>}
+        {isError && <div>Error fetching data. Try again later.</div>}
         {products && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 place-items-start">
             {products.map((product, index) => {
-          console.log(product);
               return (
                 <Link
                   to={`/products/${product.id}`}
