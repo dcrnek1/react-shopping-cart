@@ -6,7 +6,7 @@ export default function TopProductCard({title, image, price, rating}) {
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-row justify-center">
         <SmartImage 
-          className="p-2 rounded-t-lg h-50 w-50"
+          className="p-2 rounded-t-lg h-50 w-full"
           object="object-scale-down"
           src={image}
           alt={`Image of ${title}`}
