@@ -19,7 +19,7 @@ export default function LazyImage({ src, alt, className = "", object = "object-c
         loading="lazy"
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
-        className={`h-full w-full transition-opacity duration-50 ${object} ${loaded && !error ? "opacity-100" : "opacity-0"}`}
+        className={`h-full w-full ${object}`}
         {...props}
       />
       {error && (
