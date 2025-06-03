@@ -32,7 +32,7 @@ function App() {
   ];
 
   return (
-    <>
+    <div>
       <Cover />
       <div className="max-w-7xl m-auto p-2 z-0">
         <h1 className="text-xl font-bold sm:text.2xl uppercase py-2 mb-2 relative w-max">
@@ -78,7 +78,7 @@ function App() {
         </h1>
         <TopProductsBanner />
       </div>
-    </>
+    </div>
   );
 }
 
