@@ -1,7 +1,7 @@
 import { ShoppingCartSimpleIcon } from "@phosphor-icons/react";
 import SmartImage from "../utils/SmartImage";
 
-export default function TopProductCard({title, image, price, rating}) {
+export default function ProductCard({title, image, price, rating}) {
   return (
     <div className="w-full max-w-sm bg-white outline outline-slate-200 rounded-md">
       <div className="flex flex-row justify-center">

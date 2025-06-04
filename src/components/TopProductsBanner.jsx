@@ -1,7 +1,7 @@
 import CardSkeleton from "./CardSkeleton";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import TopProductCard from "./TopProductCard";
+import ProductCard from "./ProductCard";
 
 const fetchTopProducts = async () => {
   const res = await fetch(
@@ -49,7 +49,7 @@ export default function TopProductsBanner() {
                   key={index}
                   className={`w-full h-full rounded-md flex flex-col justify-between gap-2`}
                 >
-                  <TopProductCard
+                  <ProductCard
                     title={product.title}
                     image={product.image}
                     price={product.price}
