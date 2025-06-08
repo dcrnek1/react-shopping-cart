@@ -1,8 +1,8 @@
 import App from "./App";
-import Bday from "./components/BDay";
 import AppLayout from "./layouts/AppLayout";
 import ErrorPage from "./pages/ErrorPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import Products from "./pages/Products";
 
 const routes = [
   {
@@ -10,6 +10,7 @@ const routes = [
     element: <AppLayout />,
     children: [
       {index: true, element: <App />},
+      {path: "/products", element: <Products />},
       {path: "/products/:id", element: <ProductDetailPage />},
       {path: "*", element: <ErrorPage />},
     ],

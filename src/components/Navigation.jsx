@@ -15,7 +15,7 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="relative top-0 left-0 w-full p-2 text-black bg-white sm:hidden">
+      <div className="relative shadow-lg/2 top-0 left-0 w-full p-2 text-black bg-white sm:hidden z-50">
         <div className=" flex flex-col">
           <div className="font-bold text-2xl">CLOTHING</div>
           <div className="font-normal text-xl">STORE</div>
