@@ -13,7 +13,7 @@ export default function Products() {
     const res = await fetch(
       `https://fakestoreapi.com/products${
         selectedCategory.path !== "" ? "/category/" + selectedCategory.path : ""
-      }${"?sort=" + sort.toLowerCase()}` // Adjusted to use the sort state
+      }${"?sort=" + sort.toLowerCase()}`
     );
     if (!res.ok) throw new Error("Failed to fetch products");
     return res.json();
@@ -26,7 +26,7 @@ export default function Products() {
   } = useQuery({
     queryKey: ["products", categories, sort],
     queryFn: fetchProducts,
-    staleTime: 1000 * 60 * 5, // cache for 5 minutes
+    staleTime: 1000 * 60 * 5,
   });
 
   return (
