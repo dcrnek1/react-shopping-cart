@@ -55,7 +55,7 @@ function App() {
       <Cover />
       <div className="max-w-7xl m-auto p-2 z-0">
         <h1 className="text-xl font-bold sm:text.2xl uppercase py-2 mb-2 relative w-max">
-          <span className="z-2 relative">Browse by category</span>
+          <span className="z-2 relative pl-2">Browse by category</span>
           <div className="absolute bottom-1 h-1 w-full bg-primary">
             <div className="h-3 w-2 z-1 bg-white absolute -top-1.5 -left-0.5 rotate-45 object-contain"></div>
             <div className="h-3 w-2 z-1 bg-white absolute -top-0.5 -right-1.5 rotate-45 object-contain"></div>

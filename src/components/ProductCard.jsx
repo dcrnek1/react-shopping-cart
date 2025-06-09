@@ -99,7 +99,7 @@ export default function ProductCard({ product }) {
             </span>
             <button
               onClick={(e) => {e.stopPropagation(); e.preventDefault(); addToCart(product)}}
-              className="text-white relative z-25 flex flex-row gap-2 bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-2 sm:px-4 py-2 sm:py-4 text-center"
+              className="text-white transition-colors relative z-25 flex flex-row gap-2 bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-2 sm:px-4 py-2 sm:py-4 text-center"
             >
               <ShoppingCartSimpleIcon size={20} />
             </button>
