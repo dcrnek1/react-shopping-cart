@@ -136,12 +136,11 @@ export default function ProductDetailPage() {
                   >
                     ({product && product.rating != undefined && product.rating.rate.toFixed(1)})
                   </p>
-                  <a
-                    href="#"
+                  <p
                     className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline"
                   >
                     {product && product.rating != undefined && product.rating.count} Reviews
-                  </a>
+                  </p>
                 </div>
               </div>
 
