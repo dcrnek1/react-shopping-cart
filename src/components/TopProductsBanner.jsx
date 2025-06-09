@@ -47,7 +47,7 @@ export default function TopProductsBanner() {
                 <Link
                   to={`/products/${product.id}`}
                   key={index}
-                  className={`w-full h-full rounded-md flex flex-col justify-between gap-2`}
+                  className={`w-full h-full rounded-md flex flex-col justify-between gap-2 hover:transform hover:scale-101 transition-transform duration-100`}
                 >
                   <ProductCard
                     title={product.title}
