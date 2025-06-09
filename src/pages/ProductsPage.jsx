@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import CardSkeleton from "../components/CardSkeleton";
 import { ArrowDownIcon, ArrowUpIcon } from "@phosphor-icons/react";
 import { useFiltersState } from "../contexts/filterContext";
 
-export default function Products() {
+export default function ProductsPage() {
   const { sort, setSort, categories, setCategories } = useFiltersState();
   const selectedCategory = categories.find((cat) => cat.selected);
 
@@ -93,18 +92,14 @@ export default function Products() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 place-items-start">
             {products.map((product, index) => {
               return (
-                <Link
-                  to={`/products/${product.id}`}
+                <div
                   key={index}
                   className={`w-full h-full rounded-md flex flex-col justify-between gap-2`}
                 >
                   <ProductCard
-                    title={product.title}
-                    image={product.image}
-                    price={product.price}
-                    rating={product.rating.rate}
+                    product={product}
                   />
-                </Link>
+                </div>
               );
             })}
           </div>

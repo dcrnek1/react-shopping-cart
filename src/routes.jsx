@@ -1,8 +1,9 @@
 import App from "./App";
 import AppLayout from "./layouts/AppLayout";
+import CartPage from "./pages/CartPage";
 import ErrorPage from "./pages/ErrorPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import Products from "./pages/Products";
+import ProductsPage from "./pages/ProductsPage";
 
 const routes = [
   {
@@ -10,8 +11,9 @@ const routes = [
     element: <AppLayout />,
     children: [
       {index: true, element: <App />},
-      {path: "/products", element: <Products />},
+      {path: "/products", element: <ProductsPage />},
       {path: "/products/:productId", element: <ProductDetailPage />},
+      {path: "/cart", element: <CartPage />},
       {path: "*", element: <ErrorPage />},
     ],
   },

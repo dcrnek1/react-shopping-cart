@@ -44,18 +44,14 @@ export default function TopProductsBanner() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 place-items-start">
             {products.map((product, index) => {
               return (
-                <Link
-                  to={`/products/${product.id}`}
+                <div
                   key={index}
                   className={`w-full h-full rounded-md flex flex-col justify-between gap-2 hover:transform hover:scale-101 transition-transform duration-100`}
                 >
                   <ProductCard
-                    title={product.title}
-                    image={product.image}
-                    price={product.price}
-                    rating={product.rating.rate}
+                    product={product}
                   />
-                </Link>
+                </div>
               );
             })}
           </div>

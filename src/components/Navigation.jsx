@@ -5,6 +5,7 @@ import {
   ShoppingCartIcon,
 } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
+import { useCartContext } from "../contexts/cartContext";
 
 export default function Navigation() {
   const navItems = [
@@ -12,6 +13,9 @@ export default function Navigation() {
     { name: "Products", path: "/products", Icon: ShoppingBagIcon, cart: false },
     { name: "Cart", path: "/cart", Icon: ShoppingCartIcon, cart: true },
   ];
+
+  const {cart} = useCartContext();
+  const cartCount = Object.values(cart).reduce((sum) => sum + 1, 0);
 
   return (
     <>
@@ -65,9 +69,9 @@ export default function Navigation() {
                     {item.name}
                     {item.cart && (
                       <div
-                        className={`hidden absolute -top-3 -right-4 sm:-top-1 sm:-right-4 text-[8px] sm:text-[10px] outline-2 outline-white font-bold text-white bg-red-400 h-4 w-4 rounded-full overflow-hidden flex items-center justify-center`}
+                        className={`${cartCount === 0 ? "hidden" : "block"} absolute -top-3 -right-4 sm:-top-1 sm:right-1 text-[8px] sm:text-[10px] outline-2 outline-white font-bold text-white bg-red-400 h-4 w-4 rounded-full overflow-hidden flex items-center justify-center`}
                       >
-                        <div>99</div>
+                        <div>{cartCount}</div>
                       </div>
                     )}
                   </div>

@@ -1,36 +1,54 @@
 import "./App.css";
 import Cover from "./components/Cover";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TopProductsBanner from "./components/TopProductsBanner";
 import LazyImage from "./utils/SmartImage";
+import { useFiltersState } from "./contexts/filterContext";
 
 function App() {
-  const categories = [
+  const categoriesBrowse = [
     {
       name: "Men",
-      path: "/products?category=men",
+      path: "men's clothing",
       imageUrl: "assets/mens.jpg",
       overlay: false,
     },
     {
       name: "Women",
-      path: "/products?category=women",
+      path: "women's clothing",
       imageUrl: "assets/womens2.jpg",
       overlay: false,
     },
     {
       name: "Jewelery",
-      path: "/products?category=jewelery",
+      path: "jewelery",
       imageUrl: "assets/jewelery.jpg",
       overlay: false,
     },
     {
       name: "All products",
-      path: "/products",
+      path: "",
       imageUrl: "assets/allproducts.jpg",
       overlay: true,
     },
   ];
+
+  const { setCategories } = useFiltersState();
+  const navigate = useNavigate();
+
+  function categoryClickHandler(categoryPath) {
+    setCategories((prev) => {
+      return prev.map((cat) => {
+        if (cat.path === categoryPath) {
+          return { ...cat, selected: true };
+        } else {
+          return { ...cat, selected: false };
+        }
+      });
+    });
+
+    navigate("/products");
+  }
 
   return (
     <div>
@@ -44,19 +62,17 @@ function App() {
           </div>
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-          {categories.map((category, index) => {
+          {categoriesBrowse.map((category, index) => {
             return (
-              <Link
-                to={category.path}
+              <div
+                onClick={() => categoryClickHandler(category.path)}
                 className="w-full h-70 sm:h-150 relative"
                 key={index}
               >
                 <LazyImage
                   src={category.imageUrl}
                   className={`h-full w-full transition ${
-                    category.overlay
-                      ? "brightness-40"
-                      : ""
+                    category.overlay ? "brightness-40" : ""
                   }`}
                   alt=""
                   object="object-cover"
@@ -66,7 +82,7 @@ function App() {
                     {category.name}
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
