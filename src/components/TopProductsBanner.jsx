@@ -46,7 +46,7 @@ export default function TopProductsBanner() {
               return (
                 <div
                   key={index}
-                  className={`w-full h-full rounded-md flex flex-col justify-between gap-2 hover:transform hover:scale-101 transition-transform duration-100`}
+                  className={`w-full h-full rounded-md flex flex-col justify-between gap-2`}
                 >
                   <ProductCard
                     product={product}

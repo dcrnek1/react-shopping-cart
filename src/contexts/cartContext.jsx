@@ -7,7 +7,6 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState({});
 
   function addToCart(product) {
-    console.log("Adding to cart:", product);
     setCart((prev) => {
       const newCart = { ...prev };
       if (newCart[product.id]) {
@@ -29,8 +28,29 @@ export function CartProvider({ children }) {
     });
   }
 
+  function addQuantity(productId) {
+    setCart((prev) => {
+      const newCart = { ...prev };
+      if (newCart[productId] && newCart[productId].quantity < 25) {
+        newCart[productId] = {...newCart[productId], quantity: newCart[productId].quantity + 1};
+      }
+      return newCart;
+    });
+  }
+
+    function substractQuantity(productId) {
+    setCart((prev) => {
+      const newCart = { ...prev };
+      if (newCart[productId] && newCart[productId].quantity > 1) {
+        newCart[productId] = {...newCart[productId], quantity: newCart[productId].quantity - 1};
+      }
+      return newCart;
+    });
+  }
+
+
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart, removeCartItem }}>
+    <CartContext.Provider value={{ cart, setCart, addToCart, removeCartItem, addQuantity, substractQuantity }}>
       {children}
     </CartContext.Provider>
   );
