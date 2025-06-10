@@ -19,14 +19,14 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="relative shadow-lg/2 top-0 left-0 w-full p-2 text-black bg-white sm:hidden z-50">
+      <div className="relative shadow-lg/2 top-0 left-0 w-screen p-2 text-black bg-white sm:hidden z-50">
         <div className=" flex flex-col">
           <div className="font-bold text-2xl">CLOTHING</div>
           <div className="font-normal text-xl">STORE</div>
         </div>
       </div>
-      <div className="sm:shadow-xl/2 sm:sticky sm:top-0 bg-white z-50">
-        <nav className="fixed z-50 sm:relative w-full safe-bottom overflow-x-hidden p-2 bottom-0 sm:top-0 sm:bottom-auto bg-white border-t border-gray-200 sm:flex sm:justify-between sm:items-center sm:mx-auto sm:max-w-7xl">
+      <div className="sm:shadow-xl/2 w-screen sm:sticky sm:top-0 bg-white z-50">
+        <nav className="fixed z-50 sm:relative w-full safe-bottom p-2 bottom-0 sm:top-0 sm:bottom-auto bg-white border-t border-gray-200 sm:flex sm:justify-between sm:items-center sm:mx-auto sm:max-w-7xl">
           <div className="hidden sm:relative sm:block">
             <div className=" flex flex-col">
               <div className="font-bold text-2xl">CLOTHING</div>
@@ -69,7 +69,7 @@ export default function Navigation() {
                     {item.name}
                     {item.cart && (
                       <div
-                        className={`${cartCount === 0 ? "hidden" : "block"} absolute -top-3 -right-4 sm:-top-1 sm:right-1 text-[8px] sm:text-[10px] outline-2 outline-white font-bold text-white bg-red-400 h-4 w-4 rounded-full overflow-hidden flex items-center justify-center`}
+                        className={`${cartCount === 0 ? "hidden" : "block"} absolute -top-3 -right-4 sm:-top-1 sm:right-1 text-[8px] sm:text-[10px] outline-2 outline-white font-bold text-white bg-red-400 h-4 w-4 rounded-full flex items-center justify-center`}
                       >
                         <div>{cartCount}</div>
                       </div>

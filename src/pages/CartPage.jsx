@@ -2,6 +2,8 @@ import { XIcon } from "@phosphor-icons/react";
 import { useCartContext } from "../contexts/cartContext";
 import LazyImage from "../utils/SmartImage";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import VaulDrawer from "../components/addToCartDrawer";
 
 export default function CartPage() {
   const { cart, removeCartItem, addQuantity, substractQuantity } =
@@ -12,7 +14,8 @@ export default function CartPage() {
   );
 
   return (
-    <div className="container mx-auto p-2 pt-4 max-w-7xl w-full">
+    <div className="container mx-auto p-2 pt-4 max-w-7xl w-screen">
+      <VaulDrawer />
       <h1 className="text-xl font-bold sm:text.2xl uppercase py-2 mb-2 relative w-max">
         <span className="z-2 relative pl-2">Shopping cart</span>
         <div className="absolute bottom-1 h-1 w-full bg-primary">
@@ -73,7 +76,7 @@ export default function CartPage() {
                     </div>
                     <div className="flex flex-row gap-3 items-center hidden sm:block">
                       <button
-                        onClick={() => removeCartItem(product.id)}
+                        onClick={() => {removeCartItem(product.id);}}
                         className="hover:cursor-pointer text-red-700 text-sm font-normal hover:underline hover:underline-offset-2 py-2 rounded flex gap-1 items-center"
                       >
                         <XIcon size={14} weight="bold" />
@@ -82,10 +85,10 @@ export default function CartPage() {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-8 items-center justify-between sm:justify-end mt-5 sm:mt-0 w-full sm:w-auto">
+                <div className="flex gap-8 items-center justify-between sm:justify-end mt-5 sm:mt-0 w-screen sm:w-auto">
                   <div className="block sm:hidden">
                     <button
-                      onClick={() => removeCartItem(product.id)}
+                      onClick={() => {toast.warning("Product removed from cart."); removeCartItem(product.id);}}
                       className="hover:cursor-pointer text-red-500 text-sm font-normal hover:underline hover:underline-offset-2 py-2 rounded flex gap-1 items-center"
                     >
                       <XIcon size={14} weight="bold" />

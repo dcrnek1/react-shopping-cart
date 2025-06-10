@@ -2,6 +2,7 @@ import { ShoppingCartSimpleIcon } from "@phosphor-icons/react";
 import SmartImage from "../utils/SmartImage";
 import { useCartContext } from "../contexts/cartContext";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCartContext();
