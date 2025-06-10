@@ -2,12 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router";
 import LazyImage from "../utils/SmartImage";
 import { ShoppingCartIcon } from "@phosphor-icons/react";
-import { useCartContext } from "../contexts/cartContext";
 import VaulDrawer from "../components/addToCartDrawer";
 
 export default function ProductDetailPage() {
   const { productId } = useParams();
-  const { addToCart } = useCartContext();
 
   const fetchProduct = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -28,7 +26,7 @@ export default function ProductDetailPage() {
 
   return (
     <section className="bg-white antialiased max-w-7xl mx-auto w-full">
-     {/* Breadcrumbs */}
+      {/* Breadcrumbs */}
       <nav
         className="flex py-5 sm:py-5 sm:pb-9 px-2 sm:px-0"
         aria-label="Breadcrumb"
@@ -36,9 +34,7 @@ export default function ProductDetailPage() {
         <ol className="inline-flex items-center space-x-1 sm:space-x-2 rtl:space-x-reverse">
           <Link to="/products">
             <div className="flex items-center">
-              <div
-                className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 sm:ms-2 dark:text-gray-400 dark:hover:text-white"
-              >
+              <div className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 sm:ms-2 dark:text-gray-400 dark:hover:text-white">
                 Products
               </div>
             </div>
@@ -176,14 +172,12 @@ export default function ProductDetailPage() {
               </div>
 
               <div className="mt-5 sm:gap-4 sm:items-center flex justify-end sm:justify-start sm:mt-8">
-                <VaulDrawer />
-                <button
-                  onClick={() => addToCart(product)}
-                  className="text-white transition-colors mt-0 sm:mt-0 bg-primary hover:bg-primary/70 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none flex items-center gap-3 justify-center"
-                >
-                  <ShoppingCartIcon size={20} weight="bold" />
-                  Add to cart
-                </button>
+                <VaulDrawer product={product}>
+                  <button className="text-white transition-colors bg-primary hover:bg-primary/70 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none flex items-center gap-3 justify-center">
+                    <ShoppingCartIcon size={20} weight="bold" />
+                    Add to cart
+                  </button>
+                </VaulDrawer>
               </div>
 
               <hr className="my-6 sm:my-8 border-gray-200" />

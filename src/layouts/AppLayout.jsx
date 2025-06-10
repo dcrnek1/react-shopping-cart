@@ -11,18 +11,45 @@ export default function AppLayout() {
     <>
       <FiltersProvider>
         <CartProvider>
+          <Toaster
+            visibleToasts={9}
+            position="top-center"
+            icons={{
+              success: (
+                <CheckCircleIcon
+                  weight="fill"
+                  size={20}
+                  className="text-green-500"
+                />
+              ),
+              warning: (
+                <ExclamationMarkIcon
+                  weight="fill"
+                  size={20}
+                  className="text-yellow-500"
+                />
+              ),
+              error: (
+                <ExclamationMarkIcon
+                  weight="fill"
+                  size={20}
+                  className="text-red-500"
+                />
+              ),
+            }}
+            duration={3000}
+            swipeDirections={["top", "left", "right"]}
+          />
           <Navigation />
-          <main className="sm:pb-0 flex flex-col w-screen min-h-screen">
-
-            <Toaster visibleToasts={9} position="top-center" icons={{
-              success: <CheckCircleIcon weight="fill" size={20} className="text-green-500" />,
-              warning: <ExclamationMarkIcon weight="fill" size={20} className="text-yellow-500" />,
-              error: <ExclamationMarkIcon weight="fill" size={20} className="text-red-500" />
-            }} duration={3000} swipeDirections={['top', 'left', 'right']} />
-            <Outlet />
-            <ScrollRestoration />
-          </main>
-          <Footer />
+          <div data-vaul-drawer-wrapper="">
+            <div className="relative flex min-h-screen flex-col bg-background">
+              <main className="sm:pb-0 flex flex-col w-full min-h-screen">
+                <Outlet />
+                <ScrollRestoration />
+              </main>
+              <Footer />
+            </div>
+          </div>
         </CartProvider>
       </FiltersProvider>
     </>

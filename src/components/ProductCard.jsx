@@ -1,11 +1,9 @@
 import { ShoppingCartSimpleIcon } from "@phosphor-icons/react";
 import SmartImage from "../utils/SmartImage";
-import { useCartContext } from "../contexts/cartContext";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import VaulDrawer from "./addToCartDrawer";
 
 export default function ProductCard({ product }) {
-  const { addToCart } = useCartContext();
 
   return (
     <div className="w-full max-w-sm bg-white outline outline-slate-200 rounded-md">
@@ -18,7 +16,7 @@ export default function ProductCard({ product }) {
             alt={`Image of ${product.title}`}
           />
         </div>
-        <div className="px-2 pb-2 pt-2">
+        <div className="px-4 pb-4 pt-2">
           <h5 className="text-sm sm:text-xl font-semibold tracking-tight text-gray-900 line-clamp-1">
             {product.title}
           </h5>
@@ -94,19 +92,22 @@ export default function ProductCard({ product }) {
               {product.rating.rate.toFixed(1)}
             </span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-xl sm:text-3xl font-bold text-gray-900 ">
-              ${product.price.toFixed(2)}
-            </span>
-            <button
-              onClick={(e) => {e.stopPropagation(); e.preventDefault(); addToCart(product)}}
-              className="text-white transition-colors relative z-25 flex flex-row gap-2 bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-2 sm:px-4 py-2 sm:py-4 text-center"
-            >
-              <ShoppingCartSimpleIcon size={20} />
-            </button>
-          </div>
         </div>
       </Link>
+      <div className="flex items-center justify-between px-4 pb-4">
+        <span className="text-xl sm:text-3xl font-bold text-gray-900 ">
+          ${product.price.toFixed(2)}
+        </span>
+        <VaulDrawer
+          product={product}
+        >
+          <button
+            className="text-white transition-colors relative z-25 flex flex-row gap-2 bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-4 -mr-2 -mb-2 sm:px-4 py-4 sm:py-4 text-center"
+          >
+            <ShoppingCartSimpleIcon size={20} />
+          </button>
+        </VaulDrawer>
+      </div>
     </div>
   );
 }

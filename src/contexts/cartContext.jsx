@@ -9,7 +9,6 @@ export function CartProvider({ children }) {
 
   function addToCart(product, quantity = 1) {
     let toastMessage = "";
-    let newQuantity = 0;
     if (cart[product.id] && cart[product.id].quantity + quantity > 25) {
       toast.error("You cannot add more than 25 items of the same product to your cart.");
       return;
@@ -18,11 +17,10 @@ export function CartProvider({ children }) {
       const newCart = { ...prev };
       if (newCart[product.id]) {
         newCart[product.id] = { ...newCart[product.id], quantity: newCart[product.id].quantity + quantity };
-        newQuantity = newCart[product.id].quantity;
         toastMessage = `${product.title} quantity updated to ${newCart[product.id].quantity}.`;
       } else {
         newCart[product.id] = { ...product, quantity: quantity };
-        toastMessage = `${product.title} has been added to your cart.`;
+        toastMessage = `${quantity > 1 ? `${quantity}x ` : ``}${product.title} has been added to your cart.`;
       }
       return newCart;
     });
@@ -30,16 +28,14 @@ export function CartProvider({ children }) {
   }
 
   function removeCartItem(productId) {
-    let toastMessage = "";
     setCart((prev) => {
       const newCart = { ...prev };
       if (newCart[productId]) {
         delete newCart[productId];
-        toastMessage = `Item has been removed from your cart.`;
       }
       return newCart;
     });
-    toast.warning(toastMessage);
+    toast.warning("Item has been removed from your cart.");
   }
 
   function addQuantity(productId) {
@@ -68,8 +64,6 @@ export function CartProvider({ children }) {
       }
       return newCart;
     });
-
-    toastMessage.show && toast.error(toastMessage.text);
   }
 
 

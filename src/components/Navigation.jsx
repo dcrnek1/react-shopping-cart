@@ -19,13 +19,13 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="relative shadow-lg/2 top-0 left-0 w-screen p-2 text-black bg-white sm:hidden z-50">
+      <div className="relative shadow-lg/2 top-0 left-0 w-full p-2 text-black bg-white sm:hidden z-50">
         <div className=" flex flex-col">
           <div className="font-bold text-2xl">CLOTHING</div>
           <div className="font-normal text-xl">STORE</div>
         </div>
       </div>
-      <div className="sm:shadow-xl/2 w-screen sm:sticky sm:top-0 bg-white z-50">
+      <div className="sm:shadow-xl/2 w-full sm:sticky sm:top-0 bg-white z-50">
         <nav className="fixed z-50 sm:relative w-full safe-bottom p-2 bottom-0 sm:top-0 sm:bottom-auto bg-white border-t border-gray-200 sm:flex sm:justify-between sm:items-center sm:mx-auto sm:max-w-7xl">
           <div className="hidden sm:relative sm:block">
             <div className=" flex flex-col">
