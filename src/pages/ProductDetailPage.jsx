@@ -34,7 +34,7 @@ export default function ProductDetailPage() {
         <ol className="inline-flex items-center space-x-1 sm:space-x-2 rtl:space-x-reverse">
           <Link to="/products">
             <div className="flex items-center">
-              <div className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 sm:ms-2 dark:text-gray-400 dark:hover:text-white">
+              <div className="ms-1 text-sm font-light text-gray-700 hover:text-blue-600 sm:ms-2 dark:text-gray-400 dark:hover:text-white">
                 Products
               </div>
             </div>
@@ -51,11 +51,11 @@ export default function ProductDetailPage() {
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="1"
                 d="m1 9 4-4-4-4"
               />
             </svg>
-            <span className="ms-1 text-sm font-medium text-gray-500 sm:ms-2 dark:text-gray-400 line-clamp-1">
+            <span className="ms-1 text-sm font-light text-gray-500 sm:ms-2 dark:text-gray-400 line-clamp-1">
               {product && product.title}
             </span>
           </div>
